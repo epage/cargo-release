@@ -610,7 +610,7 @@ impl PublishArgs {
             registry: self.registry.clone(),
             verify: resolve_bool_arg(self.verify, self.no_verify),
             enable_features: (!self.features.is_empty()).then(|| self.features.clone()),
-            enable_all_features: self.all_features.then(|| true),
+            enable_all_features: self.all_features.then_some(true),
             target: self.target.clone(),
             ..Default::default()
         }
